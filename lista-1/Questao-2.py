@@ -6,10 +6,9 @@ Foi requisitado que você desenvolva um programa para registrar este levantament
 O programa deverá receber um número indeterminado de entradas, cada uma contendo: 
 um número de identificação do mouse o tipo de defeito:
 necessita da esfera;
-
-necessita de limpeza; a.necessita troca do cabo ou conector; a.quebrado ou inutilizado Uma identificação igual a zero encerra o programa. Ao final o programa deverá emitir o seguinte relatório:
+necessita de limpeza; a.necessita troca do cabo ou conector; a.quebrado ou inutilizado Uma identificação igual a zero encerra
+o programa. Ao final o programa deverá emitir o seguinte relatório:
 Quantidade de mouses: 100
-
 Situação                        Quantidade              Percentual
 1- necessita da esfera                  40                     40%
 2- necessita de limpeza                 30                     30%
@@ -17,8 +16,8 @@ Situação                        Quantidade              Percentual
 4- quebrado ou inutilizado              15                     15%
 '''
 
-quantidadeMouse = 0
-situcao = [['necessita da esfera',0],['necessita de limpeza',0],['necessita troca do cabo ou conector',0],['quebrado ou inutilizado',0]]
+#indice 1 = tipoSituaçao | indice 2 quantidade
+situacao = [['necessita da esfera',0],['necessita de limpeza',0],['necessita troca do cabo ou conector',0],['quebrado ou inutilizado',0]]
 
 total =0
 
@@ -38,13 +37,13 @@ def main():
         opcao = int(input('Opção: '))
         
         if opcao == 1: # Esfera
-            situcao[0][1] = situcao[0][1] + 1 
+            situacao[0][1] = situacao[0][1] + 1 
         elif opcao == 2:# Limpeza
-            situcao[1][1] = situcao[1][1] + 1 
+            situacao[1][1] = situacao[1][1] + 1 
         elif opcao == 3:# Troca
-            situcao[2][1] = situcao[2][1] + 1 
+            situacao[2][1] = situacao[2][1] + 1 
         elif opcao == 4:# Quebrado
-            situcao[3][1] = situcao[3][1] + 1 
+            situacao[3][1] = situacao[3][1] + 1 
         elif opcao == 0:# bye bye
             print('encerrando programa.')
             break
@@ -52,20 +51,15 @@ def main():
             print('Digite uma opção valida.')
     
     
-    total = situcao[0][1] +situcao[1][1] +situcao[2][1] +situcao[3][1]
+    total = situacao[0][1] +situacao[1][1] +situacao[2][1] +situacao[3][1]
     
-    print('Situação do mouse.                      | Quantidade')
-    print('1- necessita da esfera                  | ',situcao[0][1])
-    print('2- necessita de limpeza                 | ',situcao[1][1])
-    print('3- necessita troca do cabo ou conector  | ',situcao[2][1])
-    print('4- quebrado ou inutilizado              | ',situcao[3][1])
-    print('Total                                   | ',total)
+    print('\nSituação do mouse.                      | Quantidade | % Percentual |')
+    print('1- Necessita da esfera                   ',situacao[0][1], '\t\t', situacao[0][1]/total *100)
+    print('2- Necessita de limpeza                  ',situacao[1][1], '\t\t', situacao[1][1]/total *100)
+    print('3- Necessita troca do cabo ou conector   ',situacao[2][1], '\t\t', situacao[2][1]/total *100)
+    print('4- Quebrado ou inutilizado               ',situacao[3][1], '\t\t', situacao[3][1]/total *100)
+    print('\nTotal                                    ',total)
 
 
 if __name__ == "__main__":
     main()
-
-    
-    
-    
-    
